@@ -311,6 +311,6 @@ __fod_sync_bool_compare_and_swap_16(
 }
 #define FIFTYONEDEGREES_INTERLOCK_EXCHANGE_DW(d,e,c) \
     (sizeof(void*) == 8 ? \
-    __fod_sync_bool_compare_and_swap_16((void*)d, (void*)&e, (void*)&c) : \
+    __sync_bool_compare_and_swap((__int128*)d, (__int128*)&e, (__int128*)&c) : \
     __sync_bool_compare_and_swap((long*)d, *((long*)&c), *((long*)&e)))
 #endif
